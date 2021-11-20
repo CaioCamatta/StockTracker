@@ -17,6 +17,6 @@
   {
     "path": "/test4",
     "displayName": "Test Service",
-    "active": false
+    "active": true
   }
 ]

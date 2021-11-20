@@ -11,13 +11,13 @@ import {
 } from "../controller/serviceController";
 
 /* GET active services (home age). */
-router.get("/", getActiveServices);
+router.get("/services", getActiveServices);
 
 /* POST add new service. */
 router.post("/service/add", addService);
 
-/* POST remove service. */
-router.post("/service/remove", removeService);
+/* DELETE remove service. */
+router.delete("/service/remove", removeService);
 
 /* POST activate service. */
 router.post("/service/activate", activateService);

@@ -7,8 +7,10 @@ import { Service } from "./models/service";
 import { Low, JSONFile } from "lowdb";
 
 // Check if required env vars were passed
-if (!env.DATABASE_DIR) {
-  throw Error("Must define DATABASE_DIR environment variable.");
+if (!env.DATABASE_DIR || !env.API_KEY) {
+  throw Error(
+    "Must define the following environment variables: API_KEY, DATABASE_DIR."
+  );
 }
 
 // Define data model
@@ -38,7 +40,18 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(join(dbDirname, 'public')));
+
+// Protect all non-GET Routes
+app.use((req, res, next) => {
+  const apiKey = req.get("API-Key");
+  if (req.method !== "GET" && (!apiKey || apiKey !== process.env.API_KEY)) {
+    res
+      .status(401)
+      .send("Unauthorized. Please include valid API-Key in request.");
+  } else {
+    next();
+  }
+});
 
 // Set up routes
 app.use("/", indexRouter);

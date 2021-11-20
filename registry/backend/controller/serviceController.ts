@@ -1,10 +1,15 @@
 import express from "express";
 import { Service } from "../models/service";
 import { db } from "../app";
-import _ from "lodash";
 
 function instanceOfService(object: any): object is Service {
   return "path" in object;
+}
+
+function servicesEquals(object1: Service, object2: Service) {
+  return (
+    object1.displayName === object2.displayName && object1.path === object2.path
+  );
 }
 
 export const getActiveServices = async function (
@@ -57,12 +62,12 @@ export const removeService = async function (
       );
     }
 
-    if (!db.data.filter((item) => _.isEqual(item, req.body)).length) {
+    if (!db.data.filter((item) => servicesEquals(item, req.body)).length) {
       res.status(404);
       throw new Error("Resource does not exist (or has already been deleted).");
     }
 
-    db.data = db.data.filter((item) => !_.isEqual(item, req.body));
+    db.data = db.data.filter((item) => !servicesEquals(item, req.body));
     await db.write();
     res.send("Item successfully removed.");
   } catch (err) {
