@@ -1,8 +1,8 @@
 // Imports
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+import express from "express";
+import cookieParser from "cookie-parser";
+import logger from "morgan";
+// var path = require("path");
 
 // Import routes
 var indexRouter = require("./routes/index");
@@ -20,4 +20,4 @@ app.use(cookieParser());
 // Set up routes
 app.use("/", indexRouter);
 
-module.exports = app;
+export default app;
