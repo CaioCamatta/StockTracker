@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/test",
+    "displayName": "Test Service",
+    "active": true
+  },
+  {
+    "path": "/test2",
+    "displayName": "Test Service",
+    "active": true
+  },
+  {
+    "path": "/test3",
+    "displayName": "Test Service",
+    "active": true
+  },
+  {
+    "path": "/test4",
+    "displayName": "Test Service",
+    "active": false
+  }
+]

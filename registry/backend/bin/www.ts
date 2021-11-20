@@ -6,7 +6,7 @@
 import app from "../app";
 import Debug from "debug";
 const debug = Debug("registry_backend:server");
-var http = require("http");
+import http from "http";
 
 /**
  * Get port from environment and store in Express.

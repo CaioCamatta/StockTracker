@@ -1,9 +1,28 @@
 import express from "express";
 var router = express.Router();
 
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  res.send("Hello World!");
-});
+// Import controllers
+import {
+  addService,
+  getActiveServices,
+  removeService,
+  activateService,
+  deactivateService,
+} from "../controller/serviceController";
 
-module.exports = router;
+/* GET active services (home age). */
+router.get("/", getActiveServices);
+
+/* POST add new service. */
+router.post("/service/add", addService);
+
+/* POST remove service. */
+router.post("/service/remove", removeService);
+
+/* POST activate service. */
+router.post("/service/activate", activateService);
+
+/* POST deactivate service. */
+router.post("/service/deactivate", deactivateService);
+
+export default router;
