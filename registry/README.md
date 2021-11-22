@@ -4,6 +4,11 @@ _Author: Caio Coelho_
 
 The registry contains the list of services available.
 
+**Contents**
+
+1. Frontend app, made in Vue.js
+2. Backend app, made in Express.js (included embedded database)
+
 **Backend Endpoints**
 
 All POST requests must pass a valid `Service` object.
