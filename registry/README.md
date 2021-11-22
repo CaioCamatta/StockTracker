@@ -21,6 +21,7 @@ All POST request must use a API-Key authorization. Use key `API-Key` and value `
         displayName: string;
         path: string;
         active: boolean;
+        port: number;
     }
 
 **Environment Variables**

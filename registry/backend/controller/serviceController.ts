@@ -3,12 +3,12 @@ import { Service } from "../models/service";
 import { db } from "../app";
 
 function instanceOfService(object: any): object is Service {
-  return "path" in object;
+  return "port" in object;
 }
 
 function servicesEquals(object1: Service, object2: Service) {
   return (
-    object1.displayName === object2.displayName && object1.path === object2.path
+    object1.displayName === object2.displayName && object1.port === object2.port
   );
 }
 
@@ -36,9 +36,9 @@ export const addService = async function (
       throw new Error("Unprocessable Entity. Check your json data.");
     }
 
-    if (db.data.filter((item) => item.path === req.body.path).length) {
+    if (db.data.filter((item) => item.port === req.body.port).length) {
       res.status(409);
-      throw new Error("Conflict: a service with this path already exists.");
+      throw new Error("Conflict: a service with this port already exists.");
     }
 
     db.data.push(req.body);
@@ -88,13 +88,13 @@ export const activateService = async function (
       );
     }
 
-    if (!db.data.filter((item) => item.path === req.body.path).length) {
+    if (!db.data.filter((item) => item.port === req.body.port).length) {
       res.status(404);
-      throw new Error(`Resource with path ${req.body.path} does not exist.`);
+      throw new Error(`Resource with port ${req.body.port} does not exist.`);
     }
 
     db.data = db.data.map((item) => {
-      if (item.path === req.body.path) {
+      if (item.port === req.body.port) {
         item.active = true;
         return item;
       } else {
@@ -121,13 +121,13 @@ export const deactivateService = async function (
       );
     }
 
-    if (!db.data.filter((item) => item.path === req.body.path).length) {
+    if (!db.data.filter((item) => item.port === req.body.port).length) {
       res.status(404);
-      throw new Error(`Resource with path ${req.body.path} does not exist.`);
+      throw new Error(`Resource with port ${req.body.port} does not exist.`);
     }
 
     db.data = db.data.map((item) => {
-      if (item.path === req.body.path) {
+      if (item.port === req.body.port) {
         item.active = false;
         return item;
       } else {
