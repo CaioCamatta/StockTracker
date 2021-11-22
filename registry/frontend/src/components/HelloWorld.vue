@@ -14,6 +14,7 @@
               v-for="service in servicesData.filter((service) =>
                 service.displayName.includes(text)
               )"
+              v-bind:key="service.route"
             >
               <b-list-group-item class="service-list">
                 <a class="service-link" :href="service.path">{{
@@ -48,6 +49,7 @@
                 !!servicesData.filter((item2) => item2.path === item1.path)
                   .length
             )"
+            v-bind:key="service.route"
           >
             <div class="my-2">
               <b-button
@@ -103,6 +105,7 @@ export default {
         if (
           currentServices.filter((item) => item.path === service.path).length
         ) {
+          console.error("This item is already bookmarked");
         } else {
           currentServices.push({ ...service });
           localStorage.setItem("services", JSON.stringify(currentServices));
@@ -116,6 +119,7 @@ export default {
         if (
           !currentServices.filter((item) => item.path === service.path).length
         ) {
+          console.error("This item is not bookmarked");
         } else {
           currentServices = currentServices.filter(
             (item) => item.path !== service.path
