@@ -1,0 +1,8 @@
+[
+  {
+    "path": "/test4",
+    "displayName": "Test Service",
+    "active": true,
+    "port": 3000
+  }
+]
