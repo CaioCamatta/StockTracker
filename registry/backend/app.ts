@@ -40,6 +40,10 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 // Protect all non-GET Routes
 app.use((req, res, next) => {
