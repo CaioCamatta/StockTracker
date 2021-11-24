@@ -4,9 +4,10 @@
   "description": "Backend for StockTracker Registry (SOA Architecture)",
   "private": true,
   "author": "Caio Coelho",
+  "main": "./bin/www.ts",
   "repository": "https://github.com/CaioCamatta/StockTracker",
   "scripts": {
-    "start": "node ./bin/www.ts",
+    "start": "ts-node ./bin/www.ts",
     "dev-start": "nodemon ./bin/www.ts",
     "debug-start": "DEBUG=registry_backend:* yarn dev-start"
   },
