@@ -1,0 +1,13 @@
+.myfooter {
+    background-color: #EBE5FC;
+    height: 47px;
+    color: black;
+}
+
+.footerText {
+    font-size: 9px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

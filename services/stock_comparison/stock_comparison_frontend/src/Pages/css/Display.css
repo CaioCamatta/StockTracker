@@ -1,0 +1,22 @@
+.searchForm {
+    width: 333px;
+}
+
+.generalInfo {
+    font-size: 20px; 
+    color: #546272;
+}
+
+.lastUpdated {
+    font-size: 18px;
+    color: #6C757D;
+}
+
+.importantValue {
+    font-weight: 500;
+}
+
+.stockPrice {
+    font-weight: 350;
+    font-size: 24px;
+}
