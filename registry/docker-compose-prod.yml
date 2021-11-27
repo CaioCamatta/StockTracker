@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  registry-frontend:
+    build: .
+    image: 936184503418.dkr.ecr.us-east-2.amazonaws.com/registry-frontend:latest
+    ports:
+      - "80:80"
+    environment:
+      NODE_ENV: production
+  registry-backend:
+    build: .
+    image: 936184503418.dkr.ecr.us-east-2.amazonaws.com/registry-backend:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./database:/database
+    environment:
+      NODE_ENV: production
+      DATABASE_DIR: /database/
+      API_KEY: CS4471Group6
