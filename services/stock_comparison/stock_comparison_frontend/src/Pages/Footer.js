@@ -1,10 +1,19 @@
-import React from 'react';
-import './css/Footer.css';
+import React from "react";
 
 export default function Footer() {
-    return (
-        <div className="myfooter">
-            <div className="footerText">Created by Caio, Caleb, Jack, Daniel, Ryan</div>
-        </div>
-    )
+  return (
+    <div style={{ backgroundColor: "#EBE5FC", height: "47px", color: "black" }}>
+      <div
+        style={{
+          fontSize: "9px",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        Created by Caio, Caleb, Jack, Daniel, Ryan
+      </div>
+    </div>
+  );
 }
