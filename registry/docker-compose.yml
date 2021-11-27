@@ -5,9 +5,8 @@ services:
     build: .
     image: registry-frontend
     ports:
-      - "8080:8080"
+      - "80:80"
     environment:
-      PORT: 8080
       NODE_ENV: production
   registry-backend:
     build: .
@@ -17,7 +16,6 @@ services:
     volumes:
       - ./database:/database
     environment:
-      PORT: 3000
       NODE_ENV: production
       DATABASE_DIR: /database/
       API_KEY: CS4471Group6
