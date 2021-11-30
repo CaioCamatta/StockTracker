@@ -128,11 +128,19 @@ export default function Display() {
 
   // Graph configuration
   let graph_config = {
-    yaxis: {
-      title: {
-        text: "Price",
+    yaxis: [
+      {
+        title: {
+          text: "Price (USD) Stock 1"
+        },
       },
-    },
+      {
+        opposite: true,
+        title: {
+          text: "Price (USD) Stock 2"
+        }
+      }
+    ],
     xaxis: {
       categories:
         stock1Chart != null
@@ -148,7 +156,7 @@ export default function Display() {
   };
 
   return (
-    <div className="container" style={{ height: "100vh" }}>
+    <div className="container" style={{ height: "105vh" }}>
       <div
         className="d-flex justify-content-center mb-5 mt-5"
         style={{ fontWeight: 700, fontSize: "40px" }}
