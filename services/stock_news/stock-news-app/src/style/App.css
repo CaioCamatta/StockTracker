@@ -1,0 +1,20 @@
+
+h2{
+    font-weight: bold;
+}
+
+.App{
+   
+    height:100vh;
+}
+
+
+.bottombar{
+    background-color: #dfcbf9;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    padding: 0.5%;
+    text-align: center;
+}
