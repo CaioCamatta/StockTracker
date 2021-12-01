@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
 import requests
+import os
 
-API_KEY = "w9mf7gILj9AZXwVPB2R07ELs07yzGngaUiYfhjjh"
+API_KEY = os.environ['YAHOO_FINANCE_API_KEY']
 SCRIDS_LIST = {
     "day_gainers",
     "day_losers",

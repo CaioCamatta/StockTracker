@@ -8,3 +8,4 @@ services:
       - "5000:5000"
     environment:
       NODE_ENV: production
+      # requires variable: YAHOO_FINANCE_API_KEY
