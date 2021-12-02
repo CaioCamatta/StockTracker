@@ -3,18 +3,27 @@ h2{
     font-weight: bold;
 }
 
-.App{
-   
-    height:100vh;
+
+.stockheader{
+    margin-left: 140px;
+    font-size: 23px;
+    font-weight: 500;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: inherit;
 }
 
-
 .bottombar{
-    background-color: #dfcbf9;
+    background-color: #EBE5FC;
     overflow: hidden;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width:100%;
     padding: 0.5%;
     text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }

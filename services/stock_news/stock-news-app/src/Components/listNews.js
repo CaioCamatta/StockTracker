@@ -10,10 +10,9 @@ const ListNews = (props) => {
             const getArticles = async() => {
             
                 var site = "https://api.polygon.io/v2/reference/news?ticker="+props.tickname+"&apiKey=WlATdfOpIR3hvwb5rGaVCvCc38B5bSjT";
-                //alert(site);
+               
                 const res = await Axios.get(site);
-                //console.log(res.data.results[0].title)
-                setArticles(res.data.results);
+                setArticles((res.data.results));
                 
             };
             getArticles();
