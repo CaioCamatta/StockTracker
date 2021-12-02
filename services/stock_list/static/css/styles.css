@@ -1,0 +1,50 @@
+body {
+    margin: 0px;
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+}
+
+header {
+    background-color: #7749f8;
+    padding: 16px 165px 16px 165px;
+}
+
+header p {
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    margin: 0px;
+    color: white;
+}
+
+#page-container {
+    margin: 30px 165px 0px 165px;
+    display:flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+#dropdowns-container {
+    display:flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+#dropdowns-container > * {
+    margin: 8px;
+    margin-right: 0px;
+}
+
+.dropdown-container {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dropdown-container > * {
+    margin: 0px;
+    margin-left: 8px;
+}
