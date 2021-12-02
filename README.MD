@@ -1,6 +1,6 @@
 # StockTracker
 
-This app was created for a Software Architecture course. It uses a service-oriented architecture where services can be added or removed at runtime. The are four stocks-related services and a registry to control them.
+This app was created for a Software Architecture course. It uses a service-oriented architecture where services can be added or removed at runtime. There are four stocks-related services and a registry to control them.
 
 Registry:
 
@@ -18,9 +18,9 @@ Services:
 To run the app, simply build the containers and run them. The following API key must be passed `YAHOO_FINANCE_API_KEY` -- if you were provided with an `.env` file, place it at the root of the repo and it should take care of the environment variables.
 
     sudo docker-compose build
-    sudo docker-compose up -d
+    YAHOO_FINANCE_API_KEY=<api_key_here> sudo docker-compose up -d
 
-Once the app is running, register any or all services with API calls. You must also pass an `API_KEY` in the POST requests for API-Key authentication. The default is `API_KEY=CS4471Group6`.
+Once the app is running, register any or all services with API calls. You must also pass an `API-Key` in the POST requests for API-Key authentication. The default environment variable is `API_KEY=CS4471Group6`.
 
 Register all four services by running
 
