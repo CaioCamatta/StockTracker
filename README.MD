@@ -29,7 +29,7 @@ Register all four services by running
     --header 'API-Key: CS4471Group6' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "path": ":81",
+        "path": "http://localhost:81",
         "displayName": "Stock List",
         "active": true,
         "port": 81
@@ -41,7 +41,7 @@ Register all four services by running
     --header 'API-Key: CS4471Group6' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "path": ":82",
+        "path": "http://localhost:82",
         "displayName": "Stock Comparison",
         "active": true,
         "port": 82
@@ -53,7 +53,7 @@ Register all four services by running
     --header 'API-Key: CS4471Group6' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "path": ":83",
+        "path": "http://localhost:83",
         "displayName": "Stock Graph",
         "active": true,
         "port": 83
@@ -65,7 +65,7 @@ Register all four services by running
     --header 'API-Key: CS4471Group6' \
     --header 'Content-Type: application/json' \
     --data-raw '{
-        "path": ":84",
+        "path": "http://localhost:84",
         "displayName": "Stock News",
         "active": true,
         "port": 84
