@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  registry-backend:
+    build: ./registry/backend
+    image: registry-backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./database:/database
+    environment:
+      NODE_ENV: production
+      DATABASE_DIR: /database/
+      API_KEY: CS4471Group6 # Can (should) be overwritten
+  registry-frontend:
+    build: ./registry/frontend
+    image: registry-frontend
+    ports:
+      - "80:80"
+    environment:
+      NODE_ENV: production
+  stock-list:
+    build: ./services/stock_list
+    image: stock-list
+    ports:
+      - "81:5000"
+    environment:
+      - YAHOO_FINANCE_API_KEY
+  stock-comparison:
+    build: ./services/stock_comparison/stock_comparison_frontend
+    image: stock-comparison
+    ports:
+      - "82:80"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+  stock-graph:
+    build: ./services/stock_graph/frontend
+    image: stock-graph
+    ports:
+      - "83:80"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+  stock-news:
+    build: ./services/stock_news/stock-news-app
+    image: stock-news
+    ports:
+      - "84:80"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
