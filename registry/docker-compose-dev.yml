@@ -8,7 +8,6 @@ services:
       - "80:80"
     environment:
       NODE_ENV: production
-      VUE_APP_REGISTRY_BACKEND_URL: http://localhost:3000/
   registry-backend:
     build: ./registry-backend
     image: registry-backend

@@ -8,7 +8,6 @@ services:
       - "80:80"
     environment:
       NODE_ENV: production
-      VUE_APP_REGISTRY_BACKEND_URL: http://ec2-18-217-245-42.us-east-2.compute.amazonaws.com:3000/
   registry-backend:
     build: ./registry-backend
     image: 936184503418.dkr.ecr.us-east-2.amazonaws.com/registry-backend:latest

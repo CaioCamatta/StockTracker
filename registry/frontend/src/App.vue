@@ -35,7 +35,8 @@ export default {
   },
   async created() {
     const res = await fetch(
-      process.env.VUE_APP_REGISTRY_BACKEND_URL + "services",
+      // Note: hardcoded 3000 port for backend. Ideal would be env var.
+      `${window.location.protocol}//${window.location.hostname}:3000/services`,
       {
         method: "GET",
       }
