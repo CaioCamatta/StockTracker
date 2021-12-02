@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  stock-list:
+    build: .
+    image: 936184503418.dkr.ecr.us-east-2.amazonaws.com/stock-list:latest
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+      # requires variable: YAHOO_FINANCE_API_KEY
