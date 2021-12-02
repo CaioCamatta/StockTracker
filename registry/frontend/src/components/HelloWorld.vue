@@ -11,10 +11,12 @@
           class="mb-2"
         ></b-form-input>
         <div>
-          <span v-if="inputSelected"
+          <span
+            v-if="inputSelected"
+            class="position-absolute container dropdown-container"
             ><b-list-group
               v-if="servicesData.length"
-              class="services-list position-absolute"
+              class="services-list col-5"
             >
               <span
                 v-for="service in servicesData.filter((service) =>
@@ -202,7 +204,6 @@ li {
 }
 .services-list {
   border: 1px solid rgba(0, 0, 0, 0.125);
-  width: 268px;
 }
 a {
   text-decoration: none !important;
@@ -226,5 +227,9 @@ img {
 }
 .search {
   padding: 0 1rem;
+}
+.dropdown-container {
+  padding-left: 0;
+  padding-right: 75px;
 }
 </style>
