@@ -9,7 +9,7 @@
           class="mb-2"
         ></b-form-input>
         <div>
-          <b-list-group class="services-list">
+          <b-list-group v-if="servicesData.length" class="services-list">
             <span
               v-for="service in servicesData.filter((service) =>
                 service.displayName.includes(text)
@@ -39,6 +39,7 @@
               ></b-list-group-item>
             </span>
           </b-list-group>
+          <p v-else>No services available.</p>
         </div>
         <div>
           <h2 class="mb-3">Subscribed services</h2>
@@ -152,7 +153,7 @@ li {
   margin: 0 10px;
 }
 #content {
-  padding-top: 10rem;
+  padding-top: 20vh;
 }
 .service-list {
   color: var(--bs-primary);
