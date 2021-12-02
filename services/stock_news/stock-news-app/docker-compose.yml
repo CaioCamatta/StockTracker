@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  stock_comparison_frontend:
+    container_name: stock_news_frontend_container
+    build: .
+    volumes:
+      - '.:/stock-news-app'
+      - '/stock-news-app/node_modules'
+    ports:
+      - '3000:80'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true
