@@ -10,7 +10,7 @@
     </div>
     <div class="pt-5">
       <footer class="bg-light-purple container-fluid">
-        <div class="container py-3">
+        <div class="container py-3 text-center">
           Made by Caio C. Coelho, Caleb Sutherland, Daniel Wakefield, Jack
           Hillier, Ryan Harlen.
           <a href="https://github.com/CaioCamatta/StockTracker">Github</a>

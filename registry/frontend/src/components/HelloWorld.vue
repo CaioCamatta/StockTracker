@@ -5,76 +5,111 @@
         <h1 class="mb-2"><b>Stock Tracker</b></h1>
         <b-form-input
           v-model="text"
+          v-on:click="inputSelected = true"
+          v-on:blur="hideDropdown()"
           placeholder="Search service"
           class="mb-2"
         ></b-form-input>
         <div>
-          <b-list-group v-if="servicesData.length" class="services-list">
-            <span
-              v-for="service in servicesData.filter((service) =>
-                service.displayName.includes(text)
-              )"
-              v-bind:key="service.route"
+          <span v-if="inputSelected"
+            ><b-list-group
+              v-if="servicesData.length"
+              class="services-list position-absolute"
             >
-              <b-list-group-item class="service-list">
-                <a class="service-link" :href="service.path">{{
-                  service.displayName
-                }}</a>
-                <b-button
-                  v-on:click="bookmarkService(new Object(service))"
-                  class="bookmark"
-                  variant="outline-light"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 30 30"
-                    style="fill: #555"
-                  >
-                    <path
-                      d="M23,27l-8-7l-8,7V5c0-1.105,0.895-2,2-2h12c1.105,0,2,0.895,2,2V27z"
-                    ></path></svg></b-button
-              ></b-list-group-item>
-            </span>
-          </b-list-group>
-          <p v-else>No services available.</p>
+              <span
+                v-for="service in servicesData.filter((service) =>
+                  service.displayName.includes(text)
+                )"
+                v-bind:key="service.route"
+              >
+                <b-list-group-item class="service-list">
+                  <span class="service-link" :href="service.path">{{
+                    service.displayName
+                  }}</span>
+                  <b-button
+                    v-on:click="bookmarkService(new Object(service))"
+                    class="bookmark"
+                    variant="outline-light"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24px"
+                      height="24px"
+                      viewBox="0 0 24 24"
+                      fill="#7749f8"
+                    >
+                      <path
+                        d="M17 2H7a2 2 0 0 0-2 2v18l7-4.848L19 22V4a2 2 0 0 0-2-2zm-1 9h-3v3h-2v-3H8V9h3V6h2v3h3v2z"
+                      /></svg></b-button
+                ></b-list-group-item>
+              </span>
+            </b-list-group>
+            <p v-else>No services available.</p></span
+          >
         </div>
         <div>
           <h2 class="mb-3">Subscribed services</h2>
 
           <span
-            v-for="service in bookmarkedServices.filter(
-              (item1) =>
-                !!servicesData.filter((item2) => item2.path === item1.path)
-                  .length
-            )"
-            v-bind:key="service.route"
+            v-if="
+              bookmarkedServices.filter(
+                (item1) =>
+                  !!servicesData.filter((item2) => item2.path === item1.path)
+                    .length
+              ).length
+            "
           >
-            <div class="my-2">
-              <b-button
-                v-on:click="unbookmarkService(new Object(service))"
-                class="bookmark mr-3"
-                variant="outline-light"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 30 30"
-                  style="fill: #333"
-                >
-                  <path
-                    d="M23,27l-8-7l-8,7V5c0-1.105,0.895-2,2-2h12c1.105,0,2,0.895,2,2V27z"
-                  ></path></svg
-              ></b-button>
-              <a class="service-link" :href="service.path">{{
-                service.displayName
-              }}</a>
-            </div>
-          </span>
+            <span
+              v-for="service in bookmarkedServices.filter(
+                (item1) =>
+                  !!servicesData.filter((item2) => item2.path === item1.path)
+                    .length
+              )"
+              v-bind:key="service.route"
+            >
+              <div class="my-2">
+                <b-button
+                  v-on:click="unbookmarkService(new Object(service))"
+                  class="bookmark mr-3"
+                  variant="outline-light"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24px"
+                    height="24px"
+                    viewBox="0 0 24 24"
+                    fill="#444444"
+                  >
+                    <path
+                      d="M17 2H7a2 2 0 0 0-2 2v18l7-4.848L19 22V4a2 2 0 0 0-2-2zm-1 9H8V9h8v2z"
+                    /></svg
+                ></b-button>
+                <a
+                  class="service-link"
+                  :href="service.path"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span>{{ service.displayName }} </span
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16px"
+                    height="16px"
+                    viewBox="0 0 24 24"
+                    fill="#555"
+                  >
+                    <g data-name="Layer 2">
+                      <g data-name="external-link">
+                        <rect width="24" height="24" opacity="0" />
+                        <path
+                          d="M20 11a1 1 0 0 0-1 1v6a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6a1 1 0 0 0 0-2H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-6a1 1 0 0 0-1-1z"
+                        />
+                        <path
+                          d="M16 5h1.58l-6.29 6.28a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0L19 6.42V8a1 1 0 0 0 1 1 1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-4a1 1 0 0 0 0 2z"
+                        />
+                      </g>
+                    </g></svg
+                ></a>
+              </div> </span
+          ></span>
+          <p v-else>Subscribe to a service to access it.</p>
         </div>
       </b-col>
       <b-col cols="1"></b-col>
@@ -98,6 +133,7 @@ export default {
   data() {
     return {
       text: "",
+      inputSelected: false,
       bookmarkedServices: [],
       bookmarkService: function (service) {
         let currentServices = JSON.parse(
@@ -129,6 +165,10 @@ export default {
           this.bookmarkedServices = currentServices;
         }
       },
+      hideDropdown: () =>
+        setTimeout(() => {
+          this.inputSelected = false;
+        }, 250),
     };
   },
   async created() {
@@ -162,6 +202,7 @@ li {
 }
 .services-list {
   border: 1px solid rgba(0, 0, 0, 0.125);
+  width: 268px;
 }
 a {
   text-decoration: none !important;
