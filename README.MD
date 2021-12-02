@@ -75,6 +75,8 @@ Register all four services by running
 You can also use Postman or your preferred API Platform.
 Note that there is a volume for the database, so if you restart the app you don't need to re-register all services.
 
+To add, remove, activate, or deactivate services, please see the [Registry Readme](/registry)
+
 ### Architecture
 
 The primary purpose of this project was to learn & practice software architecture and the SOA pattern, not to make an industry-disrupting stock app per se :). Here is an overview of our system.
