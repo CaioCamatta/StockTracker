@@ -1,20 +1,16 @@
-# pull official base image
-FROM node:13.12.0-alpine
-
-# set working directory
+# Build
+FROM node:lts-alpine3.14 as build-stage
 WORKDIR /app
-
-# add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
-
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
+COPY package*.json /app/
 RUN npm install
-RUN npm install react-scripts@3.4.1 -g
+COPY . /app
+RUN npm run build
 
-# add app
-COPY . ./
-
-# start app
-CMD ["npm", "start"]
+# Serve
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/build /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
