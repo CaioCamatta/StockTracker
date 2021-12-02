@@ -3,6 +3,8 @@ import { Form } from "react-bootstrap";
 import "./css/Display.css";
 import Chart from "react-apexcharts";
 
+
+const API_KEY = "ba7a2p1gu45GxMGivCfTR57ZUR2Wq13d9TdAc0P1"
 // Handle requesting individual stock stock data
 // Params are event, ticker to search for, funcData is a setter for the stock data (1 or 2) and funcChart is a setter for the stock chart data (1 or 2)
 const getStockData = async (event, ticker, funcData, funcChart) => {
@@ -15,7 +17,7 @@ const getStockData = async (event, ticker, funcData, funcChart) => {
       {
         method: "GET",
         headers: {
-          "x-api-key": process.env.REACT_APP_API_KEY,
+          "x-api-key": API_KEY,
           "Content-Type": "application/json",
         },
       }
@@ -54,7 +56,7 @@ const getStockData = async (event, ticker, funcData, funcChart) => {
       {
         method: "GET",
         headers: {
-          "x-api-key": process.env.REACT_APP_API_KEY,
+          "x-api-key": API_KEY,
           "Content-Type": "application/json",
         },
       }
