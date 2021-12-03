@@ -15,10 +15,14 @@ Services:
 
 ### How to run this app
 
-To run the app, simply build the containers and run them. The following API key must be passed `YAHOO_FINANCE_API_KEY` -- if you were provided with an `.env` file, place it at the root of the repo and it should take care of the environment variables.
+To run the app, simply build the containers and run them. The following API key must be passed to `docker-compose up`: `YAHOO_FINANCE_API_KEY`. If you were provided with an `.env` file, place it at the root of the repo and it should take care of the environment variables. 
 
     sudo docker-compose build
-    YAHOO_FINANCE_API_KEY=<api_key_here> sudo docker-compose up -d
+    sudo docker-compose up -d
+
+If the environment variable is not read properly, use `YAHOO_FINANCE_API_KEY=<api_key_here> sudo docker-compose up -d` instead. You will know it's not working if the Stock List app isn't showing.
+
+To access the service, go to http://localhost:80.
 
 Once the app is running, register any or all services with API calls. You must also pass an `API-Key` in the POST requests for API-Key authentication. The default environment variable is `API_KEY=CS4471Group6`.
 
