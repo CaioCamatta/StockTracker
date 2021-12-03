@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 import StockData from './components/StockData.js';
 import ErrorBoundary from './components/ErrorBoundary.js';
@@ -8,7 +10,7 @@ import ErrorBoundary from './components/ErrorBoundary.js';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {value: 'AAPL', finalValue: 'AAPL', startDate: '', dataLength: 30};
+        this.state = {value: '', finalValue: '', startDate: '', dataLength: 30};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -29,17 +31,19 @@ class App extends Component {
         <div className='App'>
             <noscript>You need to enable JavaScript to run this app.</noscript>
             <nav class="navbar navbar-expand-sm navbar-custom navbar-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand"><b>Stock Tracker</b></a>
+                <div class="container-fluid"><t />
+                    <a class="navbar-brand" href="${window.location.protocol}//${window.location.hostname}:80">
+                    StockTracker
+                    </a><t /><t /><t /><t /><t />
                 </div>
             </nav>
             <h1><b>Stock Activity Graph</b></h1>
 
             <div class="search-bar">
-                <form onSubmit={this.handleSubmit}>
+                <Form onSubmit={this.handleSubmit}>
                     <input type="search" value={this.state.value}
                      onChange={this.handleChange} placeholder = "Search Company Ticker" />
-                </form>
+                </Form>
             </div>
 
             <div class='search-criteria-left'>
@@ -55,6 +59,14 @@ class App extends Component {
                     <StockData ticker={this.state.finalValue} dataLength={this.state.dataLength}/>
                 </ErrorBoundary>
             </div>
+
+            <footer class="bg-light-purple container-fluid">
+            <div class="container py-3">
+                Made by Caio C. Coelho, Caleb Sutherland, Daniel Wakefield, Jack
+                Hillier, Ryan Harlen. &nbsp;
+                <a href="https://github.com/CaioCamatta/StockTracker">Github</a>
+            </div>
+            </footer>
 
         </div>
     );

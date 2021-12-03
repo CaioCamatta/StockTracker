@@ -1,6 +1,6 @@
 /* Modify navbar background color */
 .navbar-custom {
-    background-color: rgb(118, 0, 253);
+    background-color: #7749F8;
 }
 
 h1 {
@@ -32,3 +32,9 @@ h1 {
     top: 300px;
     margin-left: 10%;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color:#ebe5fc;
+  }
