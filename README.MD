@@ -22,7 +22,7 @@ To run the app, simply build the containers and run them. The following API key 
 
 If the environment variable is not read properly, use `YAHOO_FINANCE_API_KEY=<api_key_here> sudo docker-compose up -d` instead. You will know it's not working if the Stock List app isn't showing.
 
-To access the service, go to http://localhost:80.
+To access the service, go to http://localhost:80. The API is hosted on port 3000 by default.
 
 Once the app is running, register any or all services with API calls. You must also pass an `API-Key` in the POST requests for API-Key authentication. The default environment variable is `API_KEY=CS4471Group6`.
 
