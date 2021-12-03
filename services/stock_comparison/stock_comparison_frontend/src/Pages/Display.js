@@ -158,7 +158,7 @@ export default function Display() {
   };
 
   return (
-    <div className="container" style={{ height: "105vh" }}>
+    <div className="container" style={{ minHeight: "95vh" }}>
       <div
         className="d-flex justify-content-center mb-5 mt-5"
         style={{ fontWeight: 700, fontSize: "40px" }}
