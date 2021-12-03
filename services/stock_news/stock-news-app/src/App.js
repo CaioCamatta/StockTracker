@@ -44,7 +44,7 @@ function App() {
         </a>
       </div>
 
-      <div style = {{margin: "auto", width:"75%", minHeight:"95vh"}}>
+      <div style = {{margin: "auto", minHeight:"95vh"}} className="container">
       <h1 className="mt-5">Stock News</h1>
       <Ticker getTick = {getTicker} />
       <h2>{ticker}</h2>
