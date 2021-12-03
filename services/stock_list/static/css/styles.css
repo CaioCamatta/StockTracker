@@ -9,7 +9,11 @@ header {
     padding: 16px 165px 16px 165px;
 }
 
-header p {
+header a {
+    text-decoration: none;
+}
+
+header a p {
     font-size: 24px;
     font-family: 'Inter', sans-serif;
     font-weight: bold;
