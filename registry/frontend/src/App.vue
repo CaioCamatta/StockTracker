@@ -35,8 +35,8 @@ export default {
   },
   async created() {
     const res = await fetch(
-      // Note: hardcoded 3000 port for backend. Ideal would be env var.
-      `${window.location.protocol}//${window.location.hostname}:3000/services`,
+      // Note: hardcoded 8180 port for backend. Ideal would be env var.
+      `${window.location.protocol}//${window.location.hostname}:8180/services`,
       {
         method: "GET",
       }

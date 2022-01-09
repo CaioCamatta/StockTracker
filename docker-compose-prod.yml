@@ -5,7 +5,7 @@ services:
     build: ./registry/backend
     image: 936184503418.dkr.ecr.us-east-2.amazonaws.com/registry-backend:latest
     ports:
-      - "3000:3000"
+      - "8180:3000"
     volumes:
       - ./database:/database
     environment:
@@ -16,34 +16,34 @@ services:
     build: ./registry/frontend
     image: 936184503418.dkr.ecr.us-east-2.amazonaws.com/registry-frontend:latest
     ports:
-      - "80:80"
+      - "8080:80"
     environment:
       NODE_ENV: production
   stock-list:
     build: ./services/stock_list
     image: 936184503418.dkr.ecr.us-east-2.amazonaws.com/stock-list:latest
     ports:
-      - "81:5000"
+      - "8081:5000"
     environment:
       - YAHOO_FINANCE_API_KEY
   stock-comparison:
     build: ./services/stock_comparison/stock_comparison_frontend
     image: 936184503418.dkr.ecr.us-east-2.amazonaws.com/stock-comparison:latest
     ports:
-      - "82:80"
+      - "8082:80"
     environment:
       - CHOKIDAR_USEPOLLING=true
   stock-graph:
     build: ./services/stock_graph/frontend
     image: 936184503418.dkr.ecr.us-east-2.amazonaws.com/stock-graph:latest
     ports:
-      - "83:80"
+      - "8083:80"
     environment:
       - CHOKIDAR_USEPOLLING=true
   stock-news:
     build: ./services/stock_news/stock-news-app
     image: 936184503418.dkr.ecr.us-east-2.amazonaws.com/stock-news:latest
     ports:
-      - "84:80"
+      - "8084:80"
     environment:
       - CHOKIDAR_USEPOLLING=true

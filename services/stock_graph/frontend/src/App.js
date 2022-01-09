@@ -32,7 +32,7 @@ class App extends Component {
             <noscript>You need to enable JavaScript to run this app.</noscript>
             <nav class="navbar navbar-expand-sm navbar-custom navbar-dark">
                 <div class="container-fluid"><t />
-                    <a class="navbar-brand" href="${window.location.protocol}//${window.location.hostname}:80">
+                    <a class="navbar-brand" href="${window.location.protocol}//${window.location.hostname}:8080">
                     StockTracker
                     </a><t /><t /><t /><t /><t />
                 </div>

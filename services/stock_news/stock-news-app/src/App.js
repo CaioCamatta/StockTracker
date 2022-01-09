@@ -28,7 +28,7 @@ function App() {
 
       <div style={{ backgroundColor: "#7749F8", height: "60px", color: "white" }}>
         <a
-          href={`${window.location.protocol}//${window.location.hostname}:80`}
+          href={`${window.location.protocol}//${window.location.hostname}:8080`}
           style={{
             marginLeft: "140px",
             fontSize: "23px",
