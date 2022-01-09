@@ -1,5 +1,7 @@
 # StockTracker
 
+Access live version: [StockTracker](http://ec2-3-144-157-84.us-east-2.compute.amazonaws.com:8080/)
+
 This app was created for a Software Architecture course. It uses a service-oriented architecture where services can be added or removed at runtime. There are four stocks-related services and a registry to control them.
 
 Registry:
